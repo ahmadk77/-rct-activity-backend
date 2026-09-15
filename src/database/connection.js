@@ -23,20 +23,17 @@ async function initDatabase() {
     console.log('DB_HOST:', DB_HOST);
     console.log('DB_NAME:', DB_NAME);
     
+    // Use connection string for better IPv4 handling
+    const connectionString = `postgresql://${DB_USER}:${encodeURIComponent(DB_PASSWORD)}@${DB_HOST}:${DB_PORT}/${DB_NAME}?sslmode=require`;
+    
     pool = new Pool({
-      host: DB_HOST,
-      port: DB_PORT,
-      database: DB_NAME,
-      user: DB_USER,
-      password: DB_PASSWORD,
+      connectionString: connectionString,
       ssl: DB_HOST.includes('supabase.co') ? { 
-        rejectUnauthorized: false,
-        mode: 'require'
+        rejectUnauthorized: false
       } : false,
       max: 20,
       idleTimeoutMillis: 30000,
       connectionTimeoutMillis: 10000,
-      family: 4, // Force IPv4
     });
 
     // Test connection
