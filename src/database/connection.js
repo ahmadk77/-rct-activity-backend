@@ -36,6 +36,7 @@ async function initDatabase() {
       max: 20,
       idleTimeoutMillis: 30000,
       connectionTimeoutMillis: 10000,
+      family: 4, // Force IPv4
     });
 
     // Test connection
