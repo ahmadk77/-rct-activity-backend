@@ -1,0 +1,8 @@
+# Local configuration and credentials
+.env
+firebase-service-account.json
+
+# Dependencies and runtime files
+node_modules/
+coverage/
+*.log

@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: rct-activity-backend
+    env: node
+    buildCommand: npm install
+    startCommand: node src/server.js
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: DB_HOST
+        value: db.ndycqtvsibwkizdhzdzn.supabase.co
+      - key: DB_PORT
+        value: 5432
+      - key: DB_NAME
+        value: postgres
+      - key: DB_USER
+        value: postgres
+      - key: DB_PASSWORD
+        value: 121444@#Aazz
+      - key: JWT_SECRET
+        value: rct_activity_secret_key_change_in_production
+      - key: JWT_EXPIRE
+        value: 7d
+      - key: ENCRYPTION_KEY
+        value: your_32_byte_encryption_key_here
+      - key: FEATURE_AI_MESSAGES
+        value: true
+      - key: FEATURE_FAMILY_COACH
+        value: true
+      - key: FEATURE_GAMIFICATION
+        value: true
+      - key: FEATURE_VIDEO_LIBRARY
+        value: true
